@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package capstone.render;
+
+enum RenderEventType {
+    RENDER_EVENT_UNKNOWN = 0;
+    RENDER_TRANSFORM_MOVED = 1;
+    RENDER_PLAY_ANIMATION = 2;
+    RENDER_SPAWN_ENTITY = 3;
+    RENDER_CHANGE_COLOR = 4;
+    RENDER_REMOVE_ENTITY = 5;
+}
+
+service RenderService {
+    rpc StreamEvent (stream RenderEvent) returns (stream RenderReply);
+}
+
+message RenderEvent {
+    RenderEventType type = 1;
+    string entity_id = 2;
+    oneof payload {
+        TransformMoved transform_moved = 3;
+        PlayAnimation play_animation = 4;
+        SpawnEntity spawn_entity = 5;
+        ChangeColor change_color = 6;
+        RemoveEntity remove_entity = 7;
+    }
+}
+
+message RenderReply {
+    string entity_id = 1;
+    string message = 2;
+}
+
+message TransformMoved {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message PlayAnimation {
+    string animation_name = 1;
+    string animation_after = 2;
+}
+
+message SpawnEntity {
+    string entity_type = 1;
+    float x = 2;
+    float y = 3;
+    float z = 4;
+}
+
+message ChangeColor {
+    int32 r = 1;
+    int32 g = 2;
+    int32 b = 3;
+    int32 a = 4;
+}
+
+message RemoveEntity {
+}
+

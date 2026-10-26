@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+message ModuleMessage {
+    string device_id = 1;
+    oneof payload {
+        InputMessage input_message = 2;
+        ModuleSetup module_setup = 3;
+        SetLed set_led = 4;
+
+        Heartbeat heartbeat = 5;
+        HeartbeatAck heartbeat_ack = 6;
+        ModuleSetupRequest module_setup_request = 7;
+    }
+}
+
+message InputMessage {
+    int32 inputId = 1;
+    oneof input {
+            ButtonPressed button_pressed = 2;
+            ButtonReleased button_released = 3;
+    }
+}
+
+message PinMapping {
+    int32 pin = 1;
+    int32 id = 2;
+}
+
+message ModuleSetup {
+    //key is the pin and value is the Id
+    repeated PinMapping input_map = 1;
+    repeated PinMapping output_map = 2;
+}
+
+message ModuleSetupRequest {
+}
+
+message ButtonPressed {
+}
+
+message ButtonReleased {
+}
+
+message SetLed {
+    int32 led_id = 2;
+    bool state = 3;
+}
+
+message Heartbeat {
+}
+
+message HeartbeatAck {
+}

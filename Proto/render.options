@@ -1,0 +1,4 @@
+RenderEvent.entity_id max_length:32
+SpawnEntity.entity_type.max_length:32
+PlayAnimation.animation_name.max_length:32
+PlayAnimation.animation_after.max_length:32

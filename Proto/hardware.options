@@ -1,0 +1,3 @@
+ModuleMessage.device_id max_length:32
+ModuleSetup.input_map max_count:16
+ModuleSetup.output_map max_count:16
