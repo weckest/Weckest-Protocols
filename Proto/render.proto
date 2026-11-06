@@ -9,6 +9,10 @@ enum RenderEventType {
     RENDER_SPAWN_ENTITY = 3;
     RENDER_CHANGE_COLOR = 4;
     RENDER_REMOVE_ENTITY = 5;
+    RENDER_START_SCENE = 6;
+    RENDER_CHANGE_HEALTH = 7;
+    RENDER_DISPLAY_MESSAGE = 8;
+    RENDER_MODULE_MAPPING = 9;
 }
 
 service RenderService {
@@ -24,6 +28,10 @@ message RenderEvent {
         SpawnEntity spawn_entity = 5;
         ChangeColor change_color = 6;
         RemoveEntity remove_entity = 7;
+        StartScene start_scene = 8;
+        ChangeHealth change_health = 9;
+        DisplayMessage display_message = 10;
+        ModuleMapping module_mapping = 11;
     }
 }
 
@@ -60,3 +68,22 @@ message ChangeColor {
 message RemoveEntity {
 }
 
+message StartScene {
+    string scene_name = 1;
+}
+
+message ChangeHealth {
+    int32 health = 1;
+}
+
+message DisplayMessage {
+    string message = 1;
+}
+
+message ModuleMapping {
+    string top = 1;
+    string bottom = 2;
+    string left = 3;
+    string right = 4;
+    string select = 5;
+}

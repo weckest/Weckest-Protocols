@@ -2,3 +2,10 @@ RenderEvent.entity_id max_length:32
 SpawnEntity.entity_type.max_length:32
 PlayAnimation.animation_name.max_length:32
 PlayAnimation.animation_after.max_length:32
+StartScene.scene_name.max_length:32
+DisplayMessage.message.max_length:32
+ModuleMapping.top.max_length:32
+ModuleMapping.bottom.max_length:32
+ModuleMapping.left.max_length:32
+ModuleMapping.right.max_length:32
+ModuleMapping.select.max_length:32
